@@ -20,21 +20,25 @@ const secondBook = {
 
 {/* <Book author={author} title={title} img={img}/> */}
 
-function BookList(props){
-    const {img, title, author } = props;
+function BookList(){    
     return (
         <section className='booklist'>
-            <Book author={firstBook.author} title={firstBook.title} img={firstBook.img}/>
+            <Book author={firstBook.author} title={firstBook.title} img={firstBook.img}>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                <button>Click Me</button>
+            </Book>
             <Book author={secondBook.author} title={secondBook.title} img={secondBook.img}/>
         </section>
     );
 }
 
-const Book = (props) => {    
+const Book = (props) => {   
+    const {img, title, author, children } = props; 
     return <article className='book'>
-        <img src={props.img}></img>
-        <h2>{props.title}</h2>
-        <h4 style={{ color:'#617D98', fontSize:'0.75reb', marginTop:'0.5rem'}}>{props.author.toUpperCase()}</h4>
+        <img src={img}></img>
+        <h2>{title}</h2>
+        <h4 style={{ color:'#617D98', fontSize:'0.75reb', marginTop:'0.5rem'}}>{author.toUpperCase()}</h4>
+        {children}
     </article>
 }
 
